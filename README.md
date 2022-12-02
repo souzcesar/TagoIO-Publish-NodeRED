@@ -5,3 +5,5 @@ Essa ação irá publicar em um tópico no nodered
 O flow do node-red disponível neste hub, consta o subscriber do tópico para receber a ação.
 Caso não tenha a variável em seu bucket execute o inject para criá-la.
 No vídeo do link abaixo, demonstro como fazer isso.
+
+https://youtu.be/ctoVQCQm9do
