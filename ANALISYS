@@ -1,0 +1,26 @@
+const Analysis = require('tago/analysis');
+const Services = require('tago/services');
+
+function myanalysis(context, scope) {
+  if (!scope.length) return context.log('no data');
+
+  const myData = scope[0];
+
+  const dataInC = {
+      variable: myData.variable,
+      value: myData.value,
+      unit: myData.unit,
+  };
+  const options = {
+      retain: false,
+      qos: 0,
+  };
+
+  //dataInC.value = dataInC.value.toPrecision(3);
+
+  const MQTT = new Services(context.token).MQTT;
+// SEU TOPICO
+  MQTT.publish('labiot/sendmsg', JSON.stringify(dataInC), myData.bucket, options).then(context.log).catch(context.log);
+}
+
+module.exports = new Analysis(myanalysis, 'SEU ANALISYS ID > LOCALIZADO NA ABA MORE DE ANALISYS');
